@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .luxury-gradient {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #FDB813 0%, #8B7355 100%);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 0 10px rgba(253, 184, 19, 0.3);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(253, 184, 19, 0) 0%,
+    rgba(253, 184, 19, 0.2) 50%,
+    rgba(253, 184, 19, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+
+/* Personnalisation de la scrollbar globale */
+::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffbf00; /* Couleur du "pouce" (la partie que tu tires) */
+  border-radius: 10px; /* Bordures arrondies pour plus de douceur */
+  border: 3px solid #ffffff; /* Bordure autour du "pouce" */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Couleur du fond de la scrollbar */
+  border-radius: 10px; /* Bordures arrondies */
+}
+
+/* Pour Firefox, personnalisation de la scrollbar */
+html {
+  scrollbar-color: #ffbf00 #f0f0f0; /* Couleur du "pouce" et du fond */
+  scrollbar-width: thin; /* Largeur de la scrollbar */
+}
+
+
